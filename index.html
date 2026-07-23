@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generador de Memes Anti-Robo Pro</title>
+  <title>Generador de Memes Viral Studio Pro</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -11,11 +11,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Impact&family=Montserrat:ital,wght@0,800;0,900;1,800&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,800;1,900&family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
     }
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
@@ -37,28 +37,28 @@
   <!-- PANEL DE CONTROL / EDITOR -->
   <div class="w-full lg:w-5/12 xl:w-4/12 p-4 sm:p-6 overflow-y-auto custom-scrollbar bg-slate-900/90 border-r border-slate-800/80 flex flex-col gap-5 max-h-screen">
     
-    <!-- ENCABEZADO -->
+    <!-- ENCABEZADO DE LA APP -->
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="p-2.5 bg-gradient-to-tr from-yellow-500 to-amber-300 rounded-xl text-slate-950 font-black shadow-lg shadow-yellow-500/20">
-          <i data-lucide="shield-check" class="w-6 h-6"></i>
+          <i data-lucide="sparkles" class="w-6 h-6"></i>
         </div>
         <div>
           <h1 class="text-xl font-black text-white tracking-tight flex items-center gap-1.5">
-            Meme Studio <span class="text-yellow-400">Pro</span>
+            Viral Studio <span class="text-yellow-400">Pro</span>
           </h1>
-          <p class="text-xs text-slate-400">Marca anti-robo entre líneas</p>
+          <p class="text-xs text-slate-400">Diseño réplica exacta anti-robo</p>
         </div>
       </div>
       <span class="text-[10px] font-extrabold uppercase tracking-widest text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 rounded-md">
-        v3.8 Ultra
+        v4.0 Final
       </span>
     </div>
 
-    <!-- FORMULARIO PRINCIPAL -->
+    <!-- FORMULARIO DE CONTROL -->
     <div class="space-y-4">
 
-      <!-- SELECTOR DE FORMATO -->
+      <!-- 1. FORMATO / RED SOCIAL -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-2">
         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Formato / Red Social</label>
         <div class="grid grid-cols-2 gap-2" id="aspectRatioGroup">
@@ -94,89 +94,85 @@
             <i data-lucide="monitor" class="w-4 h-4 shrink-0"></i>
             <div>
               <div class="leading-tight">16:9 Horizontal</div>
-              <div class="text-[10px] text-slate-400 font-normal">X (Twitter) / Youtube</div>
+              <div class="text-[10px] text-slate-400 font-normal">X (Twitter) / Web</div>
             </div>
           </button>
         </div>
       </div>
 
-      <!-- TÍTULO SUPERIOR Y MARCA -->
+      <!-- 2. ENCABEZADO / TÍTULO CON UBICACIÓN INDEPENDIENTE -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Encabezado y Marca</label>
-        
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Encabezado Superior</label>
+          
+          <!-- UBICACIÓN DEL TÍTULO -->
+          <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+            <button id="btnTitleAlignLeft" type="button" class="title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Izquierda">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
+            </button>
+            <button id="btnTitleAlignCenter" type="button" class="title-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Centro">
+              <i data-lucide="align-center" class="w-3.5 h-3.5"></i>
+            </button>
+            <button id="btnTitleAlignRight" type="button" class="title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Derecha">
+              <i data-lucide="align-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
         <div>
-          <span class="text-xs text-slate-400 mb-1.5 block">Atajos de Título:</span>
+          <span class="text-xs text-slate-400 mb-1.5 block">Atajos rápidos:</span>
           <div class="flex gap-1.5 flex-wrap mb-2">
+            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Labioso">
+              Labioso
+            </button>
+            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="@noporerevistaa">
+              @noporerevistaa
+            </button>
             <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Mr. George">
               Mr. George
             </button>
-            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="POV:">
-              POV:
-            </button>
-            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Yo cuando...">
-              Yo cuando...
-            </button>
           </div>
           
-          <input type="text" id="inputTitle" value="Mr. George" 
+          <input type="text" id="inputTitle" value="Labioso" 
             class="w-full px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm transition"
-            placeholder="Escribe un título..." />
+            placeholder="Título o usuario superior..." />
         </div>
 
         <div>
           <div class="flex justify-between items-center mb-1">
-            <label class="text-xs text-slate-400 block">Logo / Icono Superior (PNG)</label>
-            <button id="btnRemoveLogo" class="hidden text-[10px] text-rose-400 hover:underline">Eliminar logo</button>
+            <label class="text-xs text-slate-400 block">Logo opcional (Icono)</label>
+            <button id="btnRemoveLogo" class="hidden text-[10px] text-rose-400 hover:underline">Quitar logo</button>
           </div>
           <input type="file" id="inputLogo" accept="image/*" 
             class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-800 file:text-yellow-400 hover:file:bg-slate-700 cursor-pointer border border-slate-800 rounded-lg p-1 bg-slate-900" />
         </div>
       </div>
 
-      <!-- TEXTO DEL MEME -->
+      <!-- 3. FRASE / MENSAJE PRINCIPAL -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
         <div class="flex justify-between items-center">
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Texto del Meme</label>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Texto Principal</label>
           <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
-            <button id="btnAlignLeft" class="align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Izquierda">
+            <button id="btnTextAlignLeft" type="button" class="text-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Izquierda">
               <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
             </button>
-            <button id="btnAlignCenter" class="align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Centro">
+            <button id="btnTextAlignCenter" type="button" class="text-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Centro">
               <i data-lucide="align-center" class="w-3.5 h-3.5"></i>
-            </button>
-            <button id="btnAlignRight" class="align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Derecha">
-              <i data-lucide="align-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         </div>
         
         <textarea id="inputText" rows="4" 
           class="w-full px-3.5 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm leading-relaxed"
-          placeholder="Escribe el texto de tu meme...">Ese no es mi problema. Hay que trabajar 12 horas seguidas sin descanso, no hay comida, pero hay trabajo.</textarea>
+          placeholder="Escribe la frase aquí...">La felicidad del hombre está en cortarse el pelo, hacer plata y amar una sola mujer.</textarea>
 
         <div class="grid grid-cols-2 gap-3 pt-1">
           <div>
-            <label class="text-[11px] text-slate-400 block mb-1">Tamaño Fuente: <span id="lblFontSize">90px</span></label>
-            <input type="range" id="fontSizeRange" min="40" max="140" value="90" class="w-full accent-yellow-400 cursor-pointer" />
+            <label class="text-[11px] text-slate-400 block mb-1">Tamaño de Fuente</label>
+            <input type="range" id="fontSizeRange" min="50" max="130" value="95" class="w-full accent-yellow-400 cursor-pointer" />
           </div>
-          <div>
-            <label class="text-[11px] text-slate-400 block mb-1">Espaciado entre líneas</label>
-            <input type="range" id="lineGapRange" min="110" max="170" value="135" class="w-full accent-yellow-400 cursor-pointer" />
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3 pt-1">
-          <div>
-            <label class="text-[11px] text-slate-400 block mb-1">Fuente Tipográfica</label>
-            <select id="fontFamilySelect" class="w-full bg-slate-800 border border-slate-700 rounded-md text-xs text-white p-1.5 focus:outline-none focus:border-yellow-400">
-              <option value="Plus Jakarta Sans">Plus Jakarta Sans (Moderna)</option>
-              <option value="Montserrat">Montserrat ExtraBold</option>
-              <option value="Impact">Impact Classic</option>
-              <option value="Outfit">Outfit Heavy</option>
-            </select>
-          </div>
-          <div class="flex items-end">
-            <button id="btnCapitalize" class="w-full text-xs text-slate-300 hover:text-yellow-400 bg-slate-800 border border-slate-700 px-2.5 py-2 rounded-lg transition font-medium flex items-center justify-center gap-1">
+          <div class="flex items-end justify-end">
+            <button id="btnCapitalize" type="button" class="w-full text-xs text-slate-300 hover:text-yellow-400 bg-slate-800 border border-slate-700 px-2.5 py-2 rounded-lg transition font-medium flex items-center justify-center gap-1">
               <i data-lucide="type" class="w-3.5 h-3.5"></i>
               <span>Capitalizar</span>
             </button>
@@ -184,105 +180,109 @@
         </div>
       </div>
 
-      <!-- CONFIGURACIÓN ANTI-ROBO (MARCA ENTRE LÍNEAS) -->
+      <!-- 4. SISTEMA ANTI-ROBO SUPERPUESTO (EXACTO A LOS EJEMPLOS) -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-yellow-500/30 space-y-3 relative overflow-hidden">
         <div class="flex items-center justify-between">
           <label class="block text-xs font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1.5">
             <i data-lucide="shield-alert" class="w-4 h-4"></i>
-            Marca Anti-Robo Entre Líneas
+            Marca Anti-Robo Superpuesta
           </label>
         </div>
 
         <div>
-          <span class="text-xs text-slate-300 mb-1 block">Tu Usuario / Marca:</span>
-          <input type="text" id="inputTag" value="@mr_ge0rge" 
+          <span class="text-xs text-slate-300 mb-1 block">Tu Usuario / Marca (@):</span>
+          <input type="text" id="inputTag" value="@maslabiaqpinta" 
             class="w-full px-3.5 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm font-semibold"
             placeholder="@tu_usuario" />
         </div>
 
-        <!-- OPCIONES DE INTERCALADO ENTRE LÍNEAS -->
-        <div class="space-y-2.5 pt-2 border-t border-slate-800/80">
-          
+        <div class="space-y-2 pt-1 border-t border-slate-800">
           <div class="flex items-center justify-between">
-            <label for="chkBetweenLines" class="text-xs text-slate-200 cursor-pointer flex items-center gap-2">
-              <input type="checkbox" id="chkBetweenLines" checked class="w-4 h-4 accent-yellow-400 rounded cursor-pointer" />
-              <span>Colocar marca <strong>entre los espacios de cada línea</strong></span>
+            <label for="chkOverlaidTag" class="text-xs text-slate-200 cursor-pointer flex items-center gap-2">
+              <input type="checkbox" id="chkOverlaidTag" checked class="w-4 h-4 accent-yellow-400 rounded cursor-pointer" />
+              <span>Superponer marca <strong>directamente sobre las letras</strong></span>
             </label>
           </div>
 
           <div class="grid grid-cols-2 gap-2 pt-1">
             <div>
-              <label class="text-[11px] text-slate-400 block mb-1">Distribución</label>
-              <select id="selectBetweenStyle" class="w-full bg-slate-800 border border-slate-700 rounded-md text-xs text-white p-1.5 focus:outline-none focus:border-yellow-400">
-                <option value="all-gaps">En todos los espacios</option>
-                <option value="center-gap">En el espacio central</option>
-                <option value="repetitive">Repetición en mosaico</option>
+              <label class="text-[11px] text-slate-400 block mb-1">Posición Exacta</label>
+              <select id="selectOverlayPosition" class="w-full bg-slate-800 border border-slate-700 rounded-md text-xs text-white p-1.5 focus:outline-none focus:border-yellow-400">
+                <option value="middle-word">Encima del centro de la frase</option>
+                <option value="last-word">Encima de la última palabra</option>
+                <option value="diagonal">Diagonal suave en el centro</option>
               </select>
             </div>
 
             <div>
-              <label class="text-[11px] text-slate-400 block mb-1">Visibilidad: <span id="lblOpacity">40%</span></label>
-              <input type="range" id="opacityRange" min="15" max="90" value="40" class="w-full accent-yellow-400 cursor-pointer" />
+              <label class="text-[11px] text-slate-400 block mb-1">Opacidad Marca: <span id="lblOpacity">40%</span></label>
+              <input type="range" id="opacityRange" min="15" max="85" value="40" class="w-full accent-yellow-400 cursor-pointer" />
             </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-1">
-            <label for="chkBottomTag" class="text-xs text-slate-300 cursor-pointer flex items-center gap-2">
-              <input type="checkbox" id="chkBottomTag" checked class="w-4 h-4 accent-yellow-400 rounded cursor-pointer" />
-              <span>Añadir también al pie del mensaje</span>
-            </label>
           </div>
         </div>
       </div>
 
-      <!-- ESTILO DE TEXTO Y FONDO -->
+      <!-- 5. MENCIÓN INFERIOR MÓVIL (IZQUIERDA, CENTRO, DERECHA) -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Estilo Visual y Fondo</label>
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Mención Inferior (Pie de imagen)</label>
+          
+          <!-- UBICACIÓN DE LA MENCIÓN INFERIOR -->
+          <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+            <button id="btnBottomAlignLeft" type="button" class="bottom-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Izquierda">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
+            </button>
+            <button id="btnBottomAlignCenter" type="button" class="bottom-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Centro">
+              <i data-lucide="align-center" class="w-3.5 h-3.5"></i>
+            </button>
+            <button id="btnBottomAlignRight" type="button" class="bottom-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Derecha">
+              <i data-lucide="align-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="chkShowBottomTag" checked class="w-4 h-4 accent-yellow-400 rounded cursor-pointer" />
+          <label for="chkShowBottomTag" class="text-xs text-slate-300 cursor-pointer select-none">
+            Mostrar etiqueta en la parte inferior
+          </label>
+        </div>
+      </div>
+
+      <!-- 6. COLORES Y FONDOS -->
+      <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Color y Fondo Visual</label>
         
         <div class="grid grid-cols-2 gap-2 mb-2">
-          <button type="button" data-theme="paper" class="theme-btn border border-yellow-400 bg-yellow-400/10 text-yellow-400 p-2 rounded-lg text-xs font-bold text-left">
-            📄 Papel Realista
+          <button type="button" data-theme="paper-blue" class="theme-btn border border-yellow-400 bg-yellow-400/10 text-yellow-400 p-2 rounded-lg text-xs font-bold text-left">
+            💙 Papel Azul (Labioso)
           </button>
-          <button type="button" data-theme="vintage" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
-            📜 Papel Vintage
+          <button type="button" data-theme="paper-red" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
+            ❤️ Papel Rojo (NoPor)
           </button>
           <button type="button" data-theme="dark" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
-            🖤 Oscuro OLED
+            🖤 Modo Oscuro OLED
           </button>
           <button type="button" data-theme="yellow" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
-            🟨 Amarillo Viral
+            🟨 Amarillo Neón
           </button>
         </div>
 
-        <div>
-          <label class="text-[11px] text-slate-400 block mb-1">Imagen de Fondo Personalizada (Opcional)</label>
-          <input type="file" id="inputBgImage" accept="image/*" 
-            class="w-full text-xs text-slate-400 file:mr-3 file:py-1 file:px-2.5 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-800 file:text-yellow-400 cursor-pointer border border-slate-800 rounded-lg p-1 bg-slate-900" />
-        </div>
-
-        <!-- EFECTOS DE TEXTO -->
-        <div class="pt-2 border-t border-slate-800 grid grid-cols-2 gap-3">
-          <label class="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
-            <input type="checkbox" id="chkTextShadow" checked class="w-4 h-4 accent-yellow-400 rounded" />
-            <span>Sombra en Texto</span>
-          </label>
-
-          <label class="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
-            <input type="checkbox" id="chkTextStroke" class="w-4 h-4 accent-yellow-400 rounded" />
-            <span>Borde Negro (Stroke)</span>
-          </label>
-        </div>
-
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 pt-2">Color del Texto</label>
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 pt-1">Color del Texto</label>
         <div class="flex items-center gap-2.5 flex-wrap">
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-white transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#FFCA00" style="background-color: #FFCA00;" title="Amarillo Mr.">
-            <i data-lucide="check" class="w-4 h-4 text-slate-950 check-icon"></i>
+            data-color="#0E3BC8" style="background-color: #0E3BC8;" title="Azul Labioso">
+            <i data-lucide="check" class="w-4 h-4 text-white check-icon"></i>
           </button>
 
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#0E3BC8" style="background-color: #0E3BC8;" title="Azul Eléctrico">
+            data-color="#D92626" style="background-color: #D92626;" title="Rojo NoPor">
             <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
+          </button>
+
+          <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
+            data-color="#FFCA00" style="background-color: #FFCA00;" title="Amarillo Mr.">
+            <i data-lucide="check" class="w-4 h-4 text-slate-950 check-icon hidden"></i>
           </button>
 
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
@@ -291,23 +291,13 @@
           </button>
 
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#E11D48" style="background-color: #E11D48;" title="Rojo Pasión">
+            data-color="#10B981" style="background-color: #10B981;" title="Verde Esmeralda">
             <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
-          </button>
-
-          <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#10B981" style="background-color: #10B981;" title="Verde Menta">
-            <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
-          </button>
-
-          <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#FFFFFF" style="background-color: #FFFFFF;" title="Blanco Puro">
-            <i data-lucide="check" class="w-4 h-4 text-slate-900 check-icon hidden"></i>
           </button>
 
           <div class="flex items-center gap-1.5 ml-auto">
             <span class="text-[11px] text-slate-400">Color:</span>
-            <input type="color" id="customColorPicker" value="#FFCA00" 
+            <input type="color" id="customColorPicker" value="#0E3BC8" 
               class="w-7 h-7 rounded-lg bg-transparent border-0 cursor-pointer" />
           </div>
         </div>
@@ -315,7 +305,7 @@
 
     </div>
 
-    <!-- BOTONES DE EXPORTACIÓN -->
+    <!-- BOTONES DE ACCIÓN / DESCARGA -->
     <div class="pt-2 flex flex-col gap-2 mt-auto">
       <button id="btnDownload" type="button" class="w-full py-4 px-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 font-black rounded-xl flex items-center justify-center gap-2 shadow-xl shadow-yellow-500/20 transition hover:scale-[1.01] active:scale-[0.99] text-base">
         <i data-lucide="download" class="w-5 h-5"></i>
@@ -325,7 +315,7 @@
       <div class="grid grid-cols-2 gap-2">
         <button id="btnCopyClipboard" type="button" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold rounded-xl flex items-center justify-center gap-1.5 border border-slate-700 text-xs transition">
           <i data-lucide="copy" class="w-4 h-4 text-yellow-400"></i>
-          <span>Copiar Meme</span>
+          <span>Copiar Imagen</span>
         </button>
 
         <button id="btnPreviewModal" type="button" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold rounded-xl flex items-center justify-center gap-1.5 border border-slate-700 text-xs transition">
@@ -336,28 +326,28 @@
     </div>
   </div>
 
-  <!-- VISTA PREVIA EN VIVO -->
+  <!-- VISTA PREVIA EN VIVO (CANVAS) -->
   <div class="flex-1 bg-slate-950 p-4 sm:p-8 flex flex-col items-center justify-center min-h-[500px]">
     <div class="text-center mb-3 flex items-center gap-2">
       <span id="formatBadge" class="text-xs uppercase tracking-widest text-yellow-400 font-bold bg-yellow-400/10 px-3 py-1.5 rounded-full border border-yellow-400/20 shadow-sm">
         Formato: 4:5 (1080x1350px)
       </span>
       <span class="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full font-bold flex items-center gap-1">
-        <i data-lucide="lock" class="w-3 h-3"></i> Interlineado Anti-Robo
+        <i data-lucide="shield-check" class="w-3 h-3"></i> Anti-Robo Superpuesto
       </span>
     </div>
 
-    <!-- RECEPTÁCULO DEL CANVAS CON SOMBRAS -->
+    <!-- RECEPTÁCULO DEL CANVAS CON SOMBRA -->
     <div id="canvasContainer" class="relative max-w-full max-h-[78vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-800 flex items-center justify-center bg-slate-900 transition-all duration-300">
       <canvas id="memeCanvas" class="w-full h-full object-contain cursor-default"></canvas>
     </div>
     
     <p class="text-xs text-slate-500 mt-4 text-center max-w-md">
-      🛡️ <strong>Protección Anti-Corte:</strong> La marca de agua se ubica perfectamente en los espacios entre líneas sin obstruir el texto.
+      🛡️ La marca de agua se dibuja directamente sobre la superficie de las letras para prevenir clonación por IA.
     </p>
   </div>
 
-  <!-- MODAL DE DESCARGA O VISTA PREVIA -->
+  <!-- MODAL DE VISUALIZACIÓN / DESCARGA -->
   <div id="imageModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 max-w-lg w-full flex flex-col items-center gap-4 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <button id="btnCloseModal" class="absolute top-3 right-3 p-2 text-slate-400 hover:text-white bg-slate-800/60 rounded-full transition">
@@ -367,9 +357,9 @@
       <div class="text-center">
         <h3 class="text-lg font-bold text-white flex items-center justify-center gap-2">
           <i data-lucide="sparkles" class="text-yellow-400 w-5 h-5"></i>
-          Meme Renderizado en HD
+          Meme Generado en HD
         </h3>
-        <p class="text-xs text-slate-400 mt-1">Mantén presionada la imagen para guardar en tu galería.</p>
+        <p class="text-xs text-slate-400 mt-1">Mantén presionada la imagen para guardar en la galería.</p>
       </div>
 
       <div class="w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex justify-center max-h-[55vh]">
@@ -379,10 +369,10 @@
       <div class="flex flex-col sm:flex-row gap-2 w-full pt-2">
         <a id="btnModalDirectDownload" href="#" download="meme.png" class="flex-1 py-3 px-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold rounded-xl flex items-center justify-center gap-2 text-sm text-center">
           <i data-lucide="download" class="w-4 h-4"></i>
-          Descargar Directo
+          Guardar Imagen
         </a>
         <button id="btnModalCloseSecondary" type="button" class="py-3 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-sm">
-          Cerrar
+          Volver a editar
         </button>
       </div>
     </div>
@@ -392,7 +382,7 @@
     // Inicializar Iconos
     lucide.createIcons();
 
-    // Referencias DOM
+    // DOM Elements
     const canvas = document.getElementById('memeCanvas');
     const ctx = canvas.getContext('2d');
     const canvasContainer = document.getElementById('canvasContainer');
@@ -402,31 +392,34 @@
     const inputText = document.getElementById('inputText');
     const inputTag = document.getElementById('inputTag');
     const inputLogo = document.getElementById('inputLogo');
-    const inputBgImage = document.getElementById('inputBgImage');
     const btnRemoveLogo = document.getElementById('btnRemoveLogo');
-    
     const fontSizeRange = document.getElementById('fontSizeRange');
-    const lineGapRange = document.getElementById('lineGapRange');
-    const lblFontSize = document.getElementById('lblFontSize');
-    const fontFamilySelect = document.getElementById('fontFamilySelect');
     const customColorPicker = document.getElementById('customColorPicker');
     
-    const chkBetweenLines = document.getElementById('chkBetweenLines');
-    const selectBetweenStyle = document.getElementById('selectBetweenStyle');
+    const chkOverlaidTag = document.getElementById('chkOverlaidTag');
+    const selectOverlayPosition = document.getElementById('selectOverlayPosition');
     const opacityRange = document.getElementById('opacityRange');
     const lblOpacity = document.getElementById('lblOpacity');
-    const chkBottomTag = document.getElementById('chkBottomTag');
-    const chkTextShadow = document.getElementById('chkTextShadow');
-    const chkTextStroke = document.getElementById('chkTextStroke');
+    const chkShowBottomTag = document.getElementById('chkShowBottomTag');
 
     const btnDownload = document.getElementById('btnDownload');
     const btnCopyClipboard = document.getElementById('btnCopyClipboard');
     const btnPreviewModal = document.getElementById('btnPreviewModal');
     const btnCapitalize = document.getElementById('btnCapitalize');
 
-    const btnAlignLeft = document.getElementById('btnAlignLeft');
-    const btnAlignCenter = document.getElementById('btnAlignCenter');
-    const btnAlignRight = document.getElementById('btnAlignRight');
+    // Botones de alineación del Título
+    const btnTitleAlignLeft = document.getElementById('btnTitleAlignLeft');
+    const btnTitleAlignCenter = document.getElementById('btnTitleAlignCenter');
+    const btnTitleAlignRight = document.getElementById('btnTitleAlignRight');
+
+    // Botones de alineación del Texto principal
+    const btnTextAlignLeft = document.getElementById('btnTextAlignLeft');
+    const btnTextAlignCenter = document.getElementById('btnTextAlignCenter');
+
+    // Botones de alineación de la Mención Inferior
+    const btnBottomAlignLeft = document.getElementById('btnBottomAlignLeft');
+    const btnBottomAlignCenter = document.getElementById('btnBottomAlignCenter');
+    const btnBottomAlignRight = document.getElementById('btnBottomAlignRight');
 
     const imageModal = document.getElementById('imageModal');
     const modalPreviewImage = document.getElementById('modalPreviewImage');
@@ -434,22 +427,24 @@
     const btnModalCloseSecondary = document.getElementById('btnModalCloseSecondary');
     const btnModalDirectDownload = document.getElementById('btnModalDirectDownload');
 
-    // Estado Interno
+    // Estado de la Aplicación
     let canvasWidth = 1080;
     let canvasHeight = 1350;
     let currentRatioName = '4:5';
-    let currentColor = '#FFCA00';
-    let currentTheme = 'paper'; // 'paper', 'vintage', 'dark', 'yellow'
-    let textAlign = 'left'; // 'left' | 'center' | 'right'
-    
+    let currentColor = '#0E3BC8';
+    let currentTheme = 'paper-blue';
+
+    let titleAlign = 'center'; // 'left' | 'center' | 'right'
+    let textAlign = 'left';    // 'left' | 'center'
+    let bottomAlign = 'right'; // 'left' | 'center' | 'right'
+
     let uploadedLogoImage = null;
-    let uploadedBgImage = null;
     let paperTextureCanvas = null;
 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    // ATAJOS DE TÍTULOS
+    // ATAJOS RÁPIDOS
     document.querySelectorAll('.title-quick-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         inputTitle.value = btn.dataset.value;
@@ -481,7 +476,7 @@
       });
     });
 
-    // TEMAS Y FONDO
+    // TEMAS VISUALES
     document.querySelectorAll('.theme-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.theme-btn').forEach(b => {
@@ -492,36 +487,59 @@
         btn.classList.add('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
 
         currentTheme = btn.dataset.theme;
+
+        if (currentTheme === 'paper-blue') currentColor = '#0E3BC8';
+        if (currentTheme === 'paper-red') currentColor = '#D92626';
+        if (currentTheme === 'yellow') currentColor = '#111827';
+        if (currentTheme === 'dark') currentColor = '#FFCA00';
+
+        customColorPicker.value = currentColor;
         generateBackgroundTexture();
       });
     });
 
-    // ALINEACIÓN DE TEXTO
-    function updateAlignButtons(activeBtn) {
-      [btnAlignLeft, btnAlignCenter, btnAlignRight].forEach(b => {
-        b.className = "align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs";
+    // MANEJO DE ALINEACIONES
+    function updateTitleAlignButtons(activeBtn) {
+      [btnTitleAlignLeft, btnTitleAlignCenter, btnTitleAlignRight].forEach(b => {
+        b.className = "title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs";
       });
-      activeBtn.className = "align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs";
+      activeBtn.className = "title-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs";
     }
 
-    btnAlignLeft.addEventListener('click', () => { textAlign = 'left'; updateAlignButtons(btnAlignLeft); renderMeme(); });
-    btnAlignCenter.addEventListener('click', () => { textAlign = 'center'; updateAlignButtons(btnAlignCenter); renderMeme(); });
-    btnAlignRight.addEventListener('click', () => { textAlign = 'right'; updateAlignButtons(btnAlignRight); renderMeme(); });
+    btnTitleAlignLeft.addEventListener('click', () => { titleAlign = 'left'; updateTitleAlignButtons(btnTitleAlignLeft); renderMeme(); });
+    btnTitleAlignCenter.addEventListener('click', () => { titleAlign = 'center'; updateTitleAlignButtons(btnTitleAlignCenter); renderMeme(); });
+    btnTitleAlignRight.addEventListener('click', () => { titleAlign = 'right'; updateTitleAlignButtons(btnTitleAlignRight); renderMeme(); });
 
-    // GENERAR TEXTURA O FONDO
+    function updateTextAlignButtons(activeBtn) {
+      [btnTextAlignLeft, btnTextAlignCenter].forEach(b => {
+        b.className = "text-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs";
+      });
+      activeBtn.className = "text-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs";
+    }
+
+    btnTextAlignLeft.addEventListener('click', () => { textAlign = 'left'; updateTextAlignButtons(btnTextAlignLeft); renderMeme(); });
+    btnTextAlignCenter.addEventListener('click', () => { textAlign = 'center'; updateTextAlignButtons(btnTextAlignCenter); renderMeme(); });
+
+    function updateBottomAlignButtons(activeBtn) {
+      [btnBottomAlignLeft, btnBottomAlignCenter, btnBottomAlignRight].forEach(b => {
+        b.className = "bottom-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs";
+      });
+      activeBtn.className = "bottom-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs";
+    }
+
+    btnBottomAlignLeft.addEventListener('click', () => { bottomAlign = 'left'; updateBottomAlignButtons(btnBottomAlignLeft); renderMeme(); });
+    btnBottomAlignCenter.addEventListener('click', () => { bottomAlign = 'center'; updateBottomAlignButtons(btnBottomAlignCenter); renderMeme(); });
+    btnBottomAlignRight.addEventListener('click', () => { bottomAlign = 'right'; updateBottomAlignButtons(btnBottomAlignRight); renderMeme(); });
+
+    // GENERAR TEXTURA REALISTA DE PAPEL
     function generateBackgroundTexture() {
       const pCanvas = document.createElement('canvas');
       pCanvas.width = canvasWidth;
       pCanvas.height = canvasHeight;
       const pCtx = pCanvas.getContext('2d');
 
-      if (uploadedBgImage) {
-        pCtx.drawImage(uploadedBgImage, 0, 0, canvasWidth, canvasHeight);
-        pCtx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-        pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
-      } else if (currentTheme === 'paper' || currentTheme === 'vintage') {
-        const isVintage = currentTheme === 'vintage';
-        pCtx.fillStyle = isVintage ? '#f4ebd0' : '#f2f2f4';
+      if (currentTheme === 'paper-blue' || currentTheme === 'paper-red') {
+        pCtx.fillStyle = '#f2f2f4';
         pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 
         const imgData = pCtx.getImageData(0, 0, canvasWidth, canvasHeight);
@@ -534,7 +552,7 @@
         }
         pCtx.putImageData(imgData, 0, 0);
 
-        pCtx.strokeStyle = isVintage ? 'rgba(120, 80, 20, 0.05)' : 'rgba(0, 0, 0, 0.04)';
+        pCtx.strokeStyle = 'rgba(0, 0, 0, 0.04)';
         pCtx.lineWidth = 1;
         const totalFibers = Math.floor((canvasWidth * canvasHeight) / 2800);
         for (let i = 0; i < totalFibers; i++) {
@@ -553,7 +571,7 @@
           canvasWidth / 2, canvasHeight / 2, Math.max(canvasWidth, canvasHeight) * 0.75
         );
         gradient.addColorStop(0, 'rgba(0,0,0,0)');
-        gradient.addColorStop(1, isVintage ? 'rgba(80, 40, 0, 0.12)' : 'rgba(0,0,0,0.08)');
+        gradient.addColorStop(1, 'rgba(0,0,0,0.07)');
         pCtx.fillStyle = gradient;
         pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 
@@ -581,68 +599,48 @@
       const paddingTop = (currentRatioName === '9:16' ? 220 : 110) * scaleFactor;
       const contentWidth = canvasWidth - (paddingX * 2);
 
-      const selectedFontFamily = fontFamilySelect.value;
+      const mainFontFamily = '"Plus Jakarta Sans", "Montserrat", sans-serif';
 
-      // 1. ENCABEZADO / TÍTULO Y LOGO
+      // 1. TÍTULO / LOGO EN PARTE SUPERIOR (POSICIONABLE INDEPENDIENTE)
       let titleY = paddingTop;
       ctx.fillStyle = currentColor;
 
       const titleText = inputTitle.value || '';
       
-      if (uploadedLogoImage) {
-        const logoSize = 68 * scaleFactor;
-        let logoX = paddingX;
-        if (textAlign === 'center') logoX = (canvasWidth / 2) - (logoSize / 2);
-        if (textAlign === 'right') logoX = canvasWidth - paddingX - logoSize;
+      if (titleText || uploadedLogoImage) {
+        ctx.font = `900 ${Math.round(48 * scaleFactor)}px ${mainFontFamily}`;
+        ctx.textAlign = titleAlign;
 
-        ctx.drawImage(uploadedLogoImage, logoX, titleY - (10 * scaleFactor), logoSize, logoSize);
-        
-        ctx.font = `900 ${Math.round(48 * scaleFactor)}px "${selectedFontFamily}", sans-serif`;
-        ctx.textAlign = textAlign;
-        
-        let titleX = paddingX + logoSize + (20 * scaleFactor);
-        let actualTitleY = titleY + (42 * scaleFactor);
-
-        if (textAlign === 'center') {
-          titleX = canvasWidth / 2;
-          actualTitleY = titleY + logoSize + (45 * scaleFactor);
-        } else if (textAlign === 'right') {
-          titleX = canvasWidth - paddingX - logoSize - (20 * scaleFactor);
-        }
-
-        ctx.fillText(titleText, titleX, actualTitleY);
-        if (textAlign === 'center') titleY += logoSize + (20 * scaleFactor);
-      } else {
-        ctx.font = `900 ${Math.round(52 * scaleFactor)}px "${selectedFontFamily}", sans-serif`;
-        ctx.textAlign = textAlign;
         let titleX = paddingX;
-        if (textAlign === 'center') titleX = canvasWidth / 2;
-        if (textAlign === 'right') titleX = canvasWidth - paddingX;
+        if (titleAlign === 'center') titleX = canvasWidth / 2;
+        if (titleAlign === 'right') titleX = canvasWidth - paddingX;
 
-        ctx.fillText(titleText, titleX, titleY + (40 * scaleFactor));
+        if (uploadedLogoImage) {
+          const logoSize = 60 * scaleFactor;
+          let logoX = paddingX;
+          if (titleAlign === 'center') logoX = (canvasWidth / 2) - (logoSize * 1.2);
+          if (titleAlign === 'right') logoX = canvasWidth - paddingX - logoSize;
+
+          ctx.drawImage(uploadedLogoImage, logoX, titleY - (10 * scaleFactor), logoSize, logoSize);
+          ctx.fillText(titleText, titleX + (titleAlign === 'left' ? logoSize + 15 : 0), titleY + (38 * scaleFactor));
+        } else {
+          ctx.fillText(titleText, titleX, titleY + (38 * scaleFactor));
+        }
       }
 
-      // 2. TEXTO PRINCIPAL DEL MEME
-      const textYStart = titleY + ((currentRatioName === '9:16' ? 300 : 220) * scaleFactor);
+      // 2. TEXTO PRINCIPAL DEL MEME (INTERLINEADO PESADO EXACTO A TUS EJEMPLOS)
+      const textYStart = titleY + ((currentRatioName === '9:16' ? 320 : 230) * scaleFactor);
       let rawText = inputText.value || '';
-      const tagText = inputTag.value.trim();
 
       const baseFontSize = parseInt(fontSizeRange.value);
-      lblFontSize.textContent = `${baseFontSize}px`;
-
       let fontSize = baseFontSize * scaleFactor;
       if (currentRatioName === '16:9') fontSize *= 0.85;
 
-      const lineGapFactor = parseInt(lineGapRange.value) / 100;
-      const lineHeight = fontSize * lineGapFactor;
+      const lineHeight = fontSize * 0.98; // Interlineado compacto viral (Labioso / NoPor style)
 
-      ctx.font = `900 ${Math.round(fontSize)}px "${selectedFontFamily}", sans-serif`;
-
-      // Sombras del texto principal
-      ctx.shadowColor = chkTextShadow.checked ? 'rgba(0, 0, 0, 0.4)' : 'transparent';
-      ctx.shadowBlur = chkTextShadow.checked ? 12 * scaleFactor : 0;
-      ctx.shadowOffsetX = chkTextShadow.checked ? 4 * scaleFactor : 0;
-      ctx.shadowOffsetY = chkTextShadow.checked ? 4 * scaleFactor : 0;
+      ctx.font = `900 ${Math.round(fontSize)}px ${mainFontFamily}`;
+      ctx.fillStyle = currentColor;
+      ctx.textAlign = textAlign;
 
       const words = rawText.split(/\s+/);
       let lines = [];
@@ -661,32 +659,20 @@
       });
       if (currentLine.length > 0) lines.push(currentLine.join(' '));
 
-      ctx.fillStyle = currentColor;
-      ctx.textAlign = textAlign;
+      let textDrawX = paddingX;
+      if (textAlign === 'center') textDrawX = canvasWidth / 2;
 
-      // Dibujar las líneas de texto del mensaje principal
       lines.forEach((lineStr, lineIndex) => {
         const y = textYStart + (lineIndex * lineHeight);
-        let x = paddingX;
-        if (textAlign === 'center') x = canvasWidth / 2;
-        if (textAlign === 'right') x = canvasWidth - paddingX;
-
-        if (chkTextStroke.checked) {
-          ctx.strokeStyle = '#000000';
-          ctx.lineWidth = 6 * scaleFactor;
-          ctx.strokeText(lineStr, x, y);
-        }
-
-        ctx.fillText(lineStr, x, y);
+        ctx.fillText(lineStr, textDrawX, y);
       });
 
-      // Reset de sombras
-      ctx.shadowColor = 'transparent';
-
+      const firstTextY = textYStart;
       const lastTextY = textYStart + ((lines.length - 1) * lineHeight);
 
-      // 3. MARCA DE AGUA ANTI-ROBO POSICIONADA EN EL ESPACIO INTERLINEAL (SIN INTERRUMPIR EL TEXTO)
-      if (tagText && chkBetweenLines.checked && lines.length > 1) {
+      // 3. MARCA DE AGUA ANTI-ROBO SUPERPUESTA DIRECTAMENTE SOBRE LAS LETRAS
+      const tagText = inputTag.value.trim();
+      if (tagText && chkOverlaidTag.checked) {
         const opacityVal = parseInt(opacityRange.value) / 100;
         lblOpacity.textContent = `${opacityRange.value}%`;
 
@@ -694,59 +680,55 @@
         ctx.fillStyle = currentColor;
         ctx.globalAlpha = opacityVal;
 
-        // Tamaño sutil de la etiqueta para que quepa en el espacio del interlineado
-        const tagFontSize = Math.round(fontSize * 0.42);
-        ctx.font = `800 ${tagFontSize}px "${selectedFontFamily}", sans-serif`;
+        const overlayPos = selectOverlayPosition.value;
 
-        const mode = selectBetweenStyle.value;
+        if (overlayPos === 'middle-word') {
+          // Posicionar sobre el centro de las palabras centrales (exacto a imagen azul)
+          const midLineIndex = Math.floor(lines.length / 2);
+          const midY = firstTextY + (midLineIndex * lineHeight) - (fontSize * 0.15);
+          
+          ctx.font = `800 ${Math.round(fontSize * 0.45)}px ${mainFontFamily}`;
+          ctx.textAlign = 'center';
+          ctx.fillText(tagText, canvasWidth / 2, midY);
 
-        // Calcular los puntos Y de los espacios entre líneas
-        let gapIndices = [];
-        if (mode === 'all-gaps' || mode === 'repetitive') {
-          for (let i = 0; i < lines.length - 1; i++) gapIndices.push(i);
-        } else if (mode === 'center-gap') {
-          gapIndices.push(Math.floor((lines.length - 1) / 2));
+        } else if (overlayPos === 'last-word') {
+          // Posicionar justo rozando/encima de la última frase
+          ctx.font = `800 ${Math.round(fontSize * 0.45)}px ${mainFontFamily}`;
+          ctx.textAlign = textAlign;
+          ctx.fillText(tagText, textDrawX, lastTextY + (fontSize * 0.45));
+
+        } else if (overlayPos === 'diagonal') {
+          // Diagonal cruzando por encima del mensaje
+          const totalHeight = lastTextY - firstTextY;
+          const centerY = firstTextY + (totalHeight / 2);
+
+          ctx.translate(canvasWidth / 2, centerY);
+          ctx.rotate(-15 * (Math.PI / 180));
+          ctx.font = `900 ${Math.round(fontSize * 0.9)}px ${mainFontFamily}`;
+          ctx.textAlign = 'center';
+          ctx.fillText(tagText, 0, 0);
         }
 
-        gapIndices.forEach(gapIdx => {
-          // El centro exacto entre la línea actual y la siguiente
-          const lineY1 = textYStart + (gapIdx * lineHeight);
-          const gapY = lineY1 + (lineHeight / 2) + (tagFontSize * 0.25);
-
-          if (mode === 'repetitive') {
-            ctx.textAlign = 'center';
-            ctx.fillText(`${tagText}   ••   ${tagText}   ••   ${tagText}`, canvasWidth / 2, gapY);
-          } else {
-            ctx.textAlign = textAlign;
-            let gapX = paddingX;
-            if (textAlign === 'center') gapX = canvasWidth / 2;
-            if (textAlign === 'right') gapX = canvasWidth - paddingX;
-
-            ctx.fillText(tagText, gapX, gapY);
-          }
-        });
-
         ctx.restore();
-      } else {
-        lblOpacity.textContent = `${opacityRange.value}%`;
       }
 
-      // 4. ETIQUETA AL PIE DEL TEXTO
-      if (tagText && chkBottomTag.checked) {
-        const tagY = lastTextY + (lineHeight * 0.9);
-        ctx.font = `800 ${Math.round(44 * scaleFactor)}px "${selectedFontFamily}", sans-serif`;
+      // 4. MENCIÓN INFERIOR MÓVIL (IZQUIERDA, CENTRO, DERECHA)
+      if (tagText && chkShowBottomTag.checked) {
+        ctx.font = `800 ${Math.round(42 * scaleFactor)}px ${mainFontFamily}`;
         ctx.fillStyle = currentColor;
-        
-        let tagX = paddingX;
-        if (textAlign === 'center') tagX = canvasWidth / 2;
-        if (textAlign === 'right') tagX = canvasWidth - paddingX;
+        ctx.textAlign = bottomAlign;
 
-        ctx.textAlign = textAlign;
-        ctx.fillText(tagText, tagX, tagY);
+        const bottomMarginY = canvasHeight - ((currentRatioName === '9:16' ? 140 : 80) * scaleFactor);
+
+        let bottomX = paddingX;
+        if (bottomAlign === 'center') bottomX = canvasWidth / 2;
+        if (bottomAlign === 'right') bottomX = canvasWidth - paddingX;
+
+        ctx.fillText(tagText, bottomX, bottomMarginY);
       }
     }
 
-    // SUBIR LOGO
+    // CARGAR LOGO
     inputLogo.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -771,35 +753,15 @@
       renderMeme();
     });
 
-    // SUBIR FONDO
-    inputBgImage.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = new Image();
-          img.onload = () => {
-            uploadedBgImage = img;
-            generateBackgroundTexture();
-          };
-          img.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      } else {
-        uploadedBgImage = null;
-        generateBackgroundTexture();
-      }
-    });
-
-    // EVENTOS INPUT
+    // ESCUCHAR EVENTOS
     [
-      inputTitle, inputText, inputTag, fontSizeRange, lineGapRange, fontFamilySelect, 
-      chkBetweenLines, selectBetweenStyle, opacityRange, chkBottomTag, chkTextShadow, chkTextStroke
+      inputTitle, inputText, inputTag, fontSizeRange, 
+      chkOverlaidTag, selectOverlayPosition, opacityRange, chkShowBottomTag
     ].forEach(el => {
       el.addEventListener('input', renderMeme);
     });
 
-    // SELECCIÓN DE COLORES
+    // PRESETS DE COLOR
     document.querySelectorAll('.color-preset').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.color-preset').forEach(b => {
@@ -836,7 +798,7 @@
       }
     });
 
-    // DESCARGAR MEME HD
+    // DESCARGAR HD PNG
     function triggerDownload() {
       const ratioClean = currentRatioName.replace(':', '-');
       const filename = `${(inputTitle.value || 'meme').toLowerCase().replace(/\s+/g, '-')}-${ratioClean}.png`;
