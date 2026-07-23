@@ -47,11 +47,11 @@
           <h1 class="text-xl font-black text-white tracking-tight flex items-center gap-1.5">
             Viral Studio <span class="text-yellow-400">Pro</span>
           </h1>
-          <p class="text-xs text-slate-400">Diseño réplica exacta anti-robo</p>
+          <p class="text-xs text-slate-400">Formato Mr. George por defecto</p>
         </div>
       </div>
       <span class="text-[10px] font-extrabold uppercase tracking-widest text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 rounded-md">
-        v4.0 Final
+        v5.0 Final
       </span>
     </div>
 
@@ -107,10 +107,10 @@
           
           <!-- UBICACIÓN DEL TÍTULO -->
           <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
-            <button id="btnTitleAlignLeft" type="button" class="title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Izquierda">
+            <button id="btnTitleAlignLeft" type="button" class="title-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Izquierda">
               <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
             </button>
-            <button id="btnTitleAlignCenter" type="button" class="title-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Centro">
+            <button id="btnTitleAlignCenter" type="button" class="title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Centro">
               <i data-lucide="align-center" class="w-3.5 h-3.5"></i>
             </button>
             <button id="btnTitleAlignRight" type="button" class="title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs" title="Derecha">
@@ -122,18 +122,18 @@
         <div>
           <span class="text-xs text-slate-400 mb-1.5 block">Atajos rápidos:</span>
           <div class="flex gap-1.5 flex-wrap mb-2">
-            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Labioso">
-              Labioso
-            </button>
-            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="@noporerevistaa">
-              @noporerevistaa
-            </button>
             <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Mr. George">
               Mr. George
             </button>
+            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Labioso">
+              Labioso
+            </button>
+            <button type="button" class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="@noporevistaa">
+              @noporevistaa
+            </button>
           </div>
           
-          <input type="text" id="inputTitle" value="Labioso" 
+          <input type="text" id="inputTitle" value="Mr. George" 
             class="w-full px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm transition"
             placeholder="Título o usuario superior..." />
         </div>
@@ -180,7 +180,7 @@
         </div>
       </div>
 
-      <!-- 4. SISTEMA ANTI-ROBO SUPERPUESTO (EXACTO A LOS EJEMPLOS) -->
+      <!-- 4. SISTEMA ANTI-ROBO SUPERPUESTO -->
       <div class="bg-slate-950/70 p-4 rounded-xl border border-yellow-500/30 space-y-3 relative overflow-hidden">
         <div class="flex items-center justify-between">
           <label class="block text-xs font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1.5">
@@ -191,7 +191,7 @@
 
         <div>
           <span class="text-xs text-slate-300 mb-1 block">Tu Usuario / Marca (@):</span>
-          <input type="text" id="inputTag" value="@maslabiaqpinta" 
+          <input type="text" id="inputTag" value="@mr_ge0rge" 
             class="w-full px-3.5 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm font-semibold"
             placeholder="@tu_usuario" />
         </div>
@@ -215,8 +215,8 @@
             </div>
 
             <div>
-              <label class="text-[11px] text-slate-400 block mb-1">Opacidad Marca: <span id="lblOpacity">40%</span></label>
-              <input type="range" id="opacityRange" min="15" max="85" value="40" class="w-full accent-yellow-400 cursor-pointer" />
+              <label class="text-[11px] text-slate-400 block mb-1">Opacidad Marca: <span id="lblOpacity">25%</span></label>
+              <input type="range" id="opacityRange" min="10" max="85" value="25" class="w-full accent-yellow-400 cursor-pointer" />
             </div>
           </div>
         </div>
@@ -254,14 +254,14 @@
         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Color y Fondo Visual</label>
         
         <div class="grid grid-cols-2 gap-2 mb-2">
-          <button type="button" data-theme="paper-blue" class="theme-btn border border-yellow-400 bg-yellow-400/10 text-yellow-400 p-2 rounded-lg text-xs font-bold text-left">
+          <button type="button" data-theme="dark" class="theme-btn border border-yellow-400 bg-yellow-400/10 text-yellow-400 p-2 rounded-lg text-xs font-bold text-left">
+            🖤 Oscuro Mr. George
+          </button>
+          <button type="button" data-theme="paper-blue" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
             💙 Papel Azul (Labioso)
           </button>
           <button type="button" data-theme="paper-red" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
             ❤️ Papel Rojo (NoPor)
-          </button>
-          <button type="button" data-theme="dark" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
-            🖤 Modo Oscuro OLED
           </button>
           <button type="button" data-theme="yellow" class="theme-btn border border-slate-800 bg-slate-800/40 text-slate-300 p-2 rounded-lg text-xs font-bold text-left">
             🟨 Amarillo Neón
@@ -271,18 +271,18 @@
         <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 pt-1">Color del Texto</label>
         <div class="flex items-center gap-2.5 flex-wrap">
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-white transition hover:scale-110 flex items-center justify-center shadow-lg"
+            data-color="#FFCA00" style="background-color: #FFCA00;" title="Amarillo Mr. George">
+            <i data-lucide="check" class="w-4 h-4 text-slate-950 check-icon"></i>
+          </button>
+
+          <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
             data-color="#0E3BC8" style="background-color: #0E3BC8;" title="Azul Labioso">
-            <i data-lucide="check" class="w-4 h-4 text-white check-icon"></i>
+            <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
           </button>
 
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
             data-color="#D92626" style="background-color: #D92626;" title="Rojo NoPor">
             <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
-          </button>
-
-          <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
-            data-color="#FFCA00" style="background-color: #FFCA00;" title="Amarillo Mr.">
-            <i data-lucide="check" class="w-4 h-4 text-slate-950 check-icon hidden"></i>
           </button>
 
           <button type="button" class="color-preset w-8 h-8 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center shadow-lg"
@@ -297,7 +297,7 @@
 
           <div class="flex items-center gap-1.5 ml-auto">
             <span class="text-[11px] text-slate-400">Color:</span>
-            <input type="color" id="customColorPicker" value="#0E3BC8" 
+            <input type="color" id="customColorPicker" value="#FFCA00" 
               class="w-7 h-7 rounded-lg bg-transparent border-0 cursor-pointer" />
           </div>
         </div>
@@ -427,16 +427,16 @@
     const btnModalCloseSecondary = document.getElementById('btnModalCloseSecondary');
     const btnModalDirectDownload = document.getElementById('btnModalDirectDownload');
 
-    // Estado de la Aplicación
+    // Estado de la Aplicación (Valores Por Defecto: Mr. George)
     let canvasWidth = 1080;
     let canvasHeight = 1350;
     let currentRatioName = '4:5';
-    let currentColor = '#0E3BC8';
-    let currentTheme = 'paper-blue';
+    let currentColor = '#FFCA00';
+    let currentTheme = 'dark';
 
-    let titleAlign = 'center'; // 'left' | 'center' | 'right'
-    let textAlign = 'left';    // 'left' | 'center'
-    let bottomAlign = 'right'; // 'left' | 'center' | 'right'
+    let titleAlign = 'left';    // 'left' | 'center' | 'right' (Por defecto izquierda para Mr. George)
+    let textAlign = 'left';     // 'left' | 'center'
+    let bottomAlign = 'right';  // 'left' | 'center' | 'right' (Por defecto derecha para Mr. George)
 
     let uploadedLogoImage = null;
     let paperTextureCanvas = null;
@@ -488,10 +488,10 @@
 
         currentTheme = btn.dataset.theme;
 
+        if (currentTheme === 'dark') currentColor = '#FFCA00';
         if (currentTheme === 'paper-blue') currentColor = '#0E3BC8';
         if (currentTheme === 'paper-red') currentColor = '#D92626';
         if (currentTheme === 'yellow') currentColor = '#111827';
-        if (currentTheme === 'dark') currentColor = '#FFCA00';
 
         customColorPicker.value = currentColor;
         generateBackgroundTexture();
@@ -531,14 +531,17 @@
     btnBottomAlignCenter.addEventListener('click', () => { bottomAlign = 'center'; updateBottomAlignButtons(btnBottomAlignCenter); renderMeme(); });
     btnBottomAlignRight.addEventListener('click', () => { bottomAlign = 'right'; updateBottomAlignButtons(btnBottomAlignRight); renderMeme(); });
 
-    // GENERAR TEXTURA REALISTA DE PAPEL
+    // GENERAR TEXTURA REALISTA DE PAPEL O FONDO
     function generateBackgroundTexture() {
       const pCanvas = document.createElement('canvas');
       pCanvas.width = canvasWidth;
       pCanvas.height = canvasHeight;
       const pCtx = pCanvas.getContext('2d');
 
-      if (currentTheme === 'paper-blue' || currentTheme === 'paper-red') {
+      if (currentTheme === 'dark') {
+        pCtx.fillStyle = '#090d16';
+        pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+      } else if (currentTheme === 'paper-blue' || currentTheme === 'paper-red') {
         pCtx.fillStyle = '#f2f2f4';
         pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 
@@ -575,9 +578,6 @@
         pCtx.fillStyle = gradient;
         pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-      } else if (currentTheme === 'dark') {
-        pCtx.fillStyle = '#090d16';
-        pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
       } else if (currentTheme === 'yellow') {
         pCtx.fillStyle = '#facc15';
         pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -628,7 +628,7 @@
         }
       }
 
-      // 2. TEXTO PRINCIPAL DEL MEME (INTERLINEADO PESADO EXACTO A TUS EJEMPLOS)
+      // 2. TEXTO PRINCIPAL DEL MEME (INTERLINEADO PESADO EXACTO)
       const textYStart = titleY + ((currentRatioName === '9:16' ? 320 : 230) * scaleFactor);
       let rawText = inputText.value || '';
 
@@ -636,7 +636,7 @@
       let fontSize = baseFontSize * scaleFactor;
       if (currentRatioName === '16:9') fontSize *= 0.85;
 
-      const lineHeight = fontSize * 0.98; // Interlineado compacto viral (Labioso / NoPor style)
+      const lineHeight = fontSize * 0.98; // Interlineado compacto viral
 
       ctx.font = `900 ${Math.round(fontSize)}px ${mainFontFamily}`;
       ctx.fillStyle = currentColor;
@@ -683,7 +683,7 @@
         const overlayPos = selectOverlayPosition.value;
 
         if (overlayPos === 'middle-word') {
-          // Posicionar sobre el centro de las palabras centrales (exacto a imagen azul)
+          // Posicionar sobre el centro de las palabras centrales
           const midLineIndex = Math.floor(lines.length / 2);
           const midY = firstTextY + (midLineIndex * lineHeight) - (fontSize * 0.15);
           
@@ -867,7 +867,7 @@
       if (e.target === imageModal) imageModal.classList.add('hidden');
     });
 
-    // INICIO
+    // INICIO PREDETERMINADO
     window.onload = () => {
       canvasContainer.style.aspectRatio = `${canvasWidth} / ${canvasHeight}`;
       generateBackgroundTexture();
