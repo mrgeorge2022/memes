@@ -47,11 +47,11 @@
           <h1 class="text-xl font-black text-white tracking-tight flex items-center gap-1.5">
             Viral Studio <span class="text-yellow-400">Pro</span>
           </h1>
-          <p class="text-xs text-slate-400">Formato Mr. George por defecto</p>
+          <p class="text-xs text-slate-400">Control total de alineación y posición</p>
         </div>
       </div>
       <span class="text-[10px] font-extrabold uppercase tracking-widest text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 rounded-md">
-        v5.0 Final
+        v6.0 Final
       </span>
     </div>
 
@@ -152,6 +152,8 @@
       <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
         <div class="flex justify-between items-center">
           <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Texto Principal</label>
+          
+          <!-- ALINEACIÓN HORIZONTAL DEL TEXTO -->
           <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
             <button id="btnTextAlignLeft" type="button" class="text-align-btn px-2 py-1 bg-yellow-400 text-slate-950 rounded font-bold text-xs" title="Izquierda">
               <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
@@ -165,6 +167,25 @@
         <textarea id="inputText" rows="4" 
           class="w-full px-3.5 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm leading-relaxed"
           placeholder="Escribe la frase aquí...">La felicidad del hombre está en cortarse el pelo, hacer plata y amar una sola mujer.</textarea>
+
+        <!-- POSICIÓN VERTICAL DE LA FRASE -->
+        <div>
+          <span class="text-[11px] text-slate-400 block mb-1">Posición Vertical de la Frase:</span>
+          <div class="grid grid-cols-3 gap-1.5">
+            <button id="btnVPosTop" type="button" class="vpos-btn py-1.5 px-2 bg-yellow-400 text-slate-950 font-bold text-xs rounded-lg border border-yellow-400 transition flex items-center justify-center gap-1">
+              <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+              <span>Inicio</span>
+            </button>
+            <button id="btnVPosCenter" type="button" class="vpos-btn py-1.5 px-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-lg border border-slate-700 transition flex items-center justify-center gap-1">
+              <i data-lucide="align-vertical-space-around" class="w-3.5 h-3.5"></i>
+              <span>Medio</span>
+            </button>
+            <button id="btnVPosBottom" type="button" class="vpos-btn py-1.5 px-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-lg border border-slate-700 transition flex items-center justify-center gap-1">
+              <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+              <span>Final</span>
+            </button>
+          </div>
+        </div>
 
         <div class="grid grid-cols-2 gap-3 pt-1">
           <div>
@@ -412,9 +433,14 @@
     const btnTitleAlignCenter = document.getElementById('btnTitleAlignCenter');
     const btnTitleAlignRight = document.getElementById('btnTitleAlignRight');
 
-    // Botones de alineación del Texto principal
+    // Botones de alineación Horizontal del Texto principal
     const btnTextAlignLeft = document.getElementById('btnTextAlignLeft');
     const btnTextAlignCenter = document.getElementById('btnTextAlignCenter');
+
+    // Botones de posición Vertical del Texto principal
+    const btnVPosTop = document.getElementById('btnVPosTop');
+    const btnVPosCenter = document.getElementById('btnVPosCenter');
+    const btnVPosBottom = document.getElementById('btnVPosBottom');
 
     // Botones de alineación de la Mención Inferior
     const btnBottomAlignLeft = document.getElementById('btnBottomAlignLeft');
@@ -434,9 +460,10 @@
     let currentColor = '#FFCA00';
     let currentTheme = 'dark';
 
-    let titleAlign = 'left';    // 'left' | 'center' | 'right' (Por defecto izquierda para Mr. George)
+    let titleAlign = 'left';    // 'left' | 'center' | 'right'
     let textAlign = 'left';     // 'left' | 'center'
-    let bottomAlign = 'right';  // 'left' | 'center' | 'right' (Por defecto derecha para Mr. George)
+    let textVPos = 'top';       // 'top' | 'center' | 'bottom'
+    let bottomAlign = 'right';  // 'left' | 'center' | 'right'
 
     let uploadedLogoImage = null;
     let paperTextureCanvas = null;
@@ -498,7 +525,7 @@
       });
     });
 
-    // MANEJO DE ALINEACIONES
+    // MANEJO DE ALINEACIONES HORIZONTALES
     function updateTitleAlignButtons(activeBtn) {
       [btnTitleAlignLeft, btnTitleAlignCenter, btnTitleAlignRight].forEach(b => {
         b.className = "title-align-btn px-2 py-1 text-slate-400 hover:text-white rounded font-bold text-xs";
@@ -519,6 +546,18 @@
 
     btnTextAlignLeft.addEventListener('click', () => { textAlign = 'left'; updateTextAlignButtons(btnTextAlignLeft); renderMeme(); });
     btnTextAlignCenter.addEventListener('click', () => { textAlign = 'center'; updateTextAlignButtons(btnTextAlignCenter); renderMeme(); });
+
+    // MANEJO DE POSICIÓN VERTICAL DE LA FRASE
+    function updateVPosButtons(activeBtn) {
+      [btnVPosTop, btnVPosCenter, btnVPosBottom].forEach(b => {
+        b.className = "vpos-btn py-1.5 px-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-lg border border-slate-700 transition flex items-center justify-center gap-1";
+      });
+      activeBtn.className = "vpos-btn py-1.5 px-2 bg-yellow-400 text-slate-950 font-bold text-xs rounded-lg border border-yellow-400 transition flex items-center justify-center gap-1";
+    }
+
+    btnVPosTop.addEventListener('click', () => { textVPos = 'top'; updateVPosButtons(btnVPosTop); renderMeme(); });
+    btnVPosCenter.addEventListener('click', () => { textVPos = 'center'; updateVPosButtons(btnVPosCenter); renderMeme(); });
+    btnVPosBottom.addEventListener('click', () => { textVPos = 'bottom'; updateVPosButtons(btnVPosBottom); renderMeme(); });
 
     function updateBottomAlignButtons(activeBtn) {
       [btnBottomAlignLeft, btnBottomAlignCenter, btnBottomAlignRight].forEach(b => {
@@ -601,7 +640,7 @@
 
       const mainFontFamily = '"Plus Jakarta Sans", "Montserrat", sans-serif';
 
-      // 1. TÍTULO / LOGO EN PARTE SUPERIOR (POSICIONABLE INDEPENDIENTE)
+      // 1. TÍTULO / LOGO EN PARTE SUPERIOR
       let titleY = paddingTop;
       ctx.fillStyle = currentColor;
 
@@ -628,8 +667,7 @@
         }
       }
 
-      // 2. TEXTO PRINCIPAL DEL MEME (INTERLINEADO PESADO EXACTO)
-      const textYStart = titleY + ((currentRatioName === '9:16' ? 320 : 230) * scaleFactor);
+      // 2. PROCESAMIENTO DE LÍNEAS DEL TEXTO PRINCIPAL
       let rawText = inputText.value || '';
 
       const baseFontSize = parseInt(fontSizeRange.value);
@@ -639,8 +677,6 @@
       const lineHeight = fontSize * 0.98; // Interlineado compacto viral
 
       ctx.font = `900 ${Math.round(fontSize)}px ${mainFontFamily}`;
-      ctx.fillStyle = currentColor;
-      ctx.textAlign = textAlign;
 
       const words = rawText.split(/\s+/);
       let lines = [];
@@ -659,6 +695,24 @@
       });
       if (currentLine.length > 0) lines.push(currentLine.join(' '));
 
+      // 3. CÁLCULO DE POSICIÓN VERTICAL DE LA FRASE (TOP / CENTER / BOTTOM)
+      const totalBlockHeight = lines.length * lineHeight;
+      const bottomMarginLimit = canvasHeight - ((currentRatioName === '9:16' ? 220 : 160) * scaleFactor);
+      const topStartDefault = titleY + ((currentRatioName === '9:16' ? 320 : 230) * scaleFactor);
+
+      let textYStart = topStartDefault;
+
+      if (textVPos === 'center') {
+        const availableHeight = bottomMarginLimit - titleY;
+        textYStart = titleY + (availableHeight / 2) - (totalBlockHeight / 2) + (lineHeight / 2);
+      } else if (textVPos === 'bottom') {
+        textYStart = bottomMarginLimit - totalBlockHeight + lineHeight;
+      }
+
+      // Dibujar la frase principal
+      ctx.fillStyle = currentColor;
+      ctx.textAlign = textAlign;
+
       let textDrawX = paddingX;
       if (textAlign === 'center') textDrawX = canvasWidth / 2;
 
@@ -670,7 +724,7 @@
       const firstTextY = textYStart;
       const lastTextY = textYStart + ((lines.length - 1) * lineHeight);
 
-      // 3. MARCA DE AGUA ANTI-ROBO SUPERPUESTA DIRECTAMENTE SOBRE LAS LETRAS
+      // 4. MARCA DE AGUA ANTI-ROBO SUPERPUESTA DIRECTAMENTE SOBRE LAS LETRAS
       const tagText = inputTag.value.trim();
       if (tagText && chkOverlaidTag.checked) {
         const opacityVal = parseInt(opacityRange.value) / 100;
@@ -712,7 +766,7 @@
         ctx.restore();
       }
 
-      // 4. MENCIÓN INFERIOR MÓVIL (IZQUIERDA, CENTRO, DERECHA)
+      // 5. MENCIÓN INFERIOR MÓVIL (IZQUIERDA, CENTRO, DERECHA)
       if (tagText && chkShowBottomTag.checked) {
         ctx.font = `800 ${Math.round(42 * scaleFactor)}px ${mainFontFamily}`;
         ctx.fillStyle = currentColor;
