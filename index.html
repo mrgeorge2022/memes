@@ -51,7 +51,7 @@
         </div>
       </div>
       <span class="text-[10px] font-extrabold uppercase tracking-widest text-yellow-400 bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 rounded-md">
-        v6.0 Final
+        v6.1 Final
       </span>
     </div>
 
@@ -172,11 +172,11 @@
         <div>
           <span class="text-[11px] text-slate-400 block mb-1">Posición Vertical de la Frase:</span>
           <div class="grid grid-cols-3 gap-1.5">
-            <button id="btnVPosTop" type="button" class="vpos-btn py-1.5 px-2 bg-yellow-400 text-slate-950 font-bold text-xs rounded-lg border border-yellow-400 transition flex items-center justify-center gap-1">
+            <button id="btnVPosTop" type="button" class="vpos-btn py-1.5 px-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-lg border border-slate-700 transition flex items-center justify-center gap-1">
               <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
               <span>Inicio</span>
             </button>
-            <button id="btnVPosCenter" type="button" class="vpos-btn py-1.5 px-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-lg border border-slate-700 transition flex items-center justify-center gap-1">
+            <button id="btnVPosCenter" type="button" class="vpos-btn py-1.5 px-2 bg-yellow-400 text-slate-950 font-bold text-xs rounded-lg border border-yellow-400 transition flex items-center justify-center gap-1">
               <i data-lucide="align-vertical-space-around" class="w-3.5 h-3.5"></i>
               <span>Medio</span>
             </button>
@@ -453,7 +453,7 @@
     const btnModalCloseSecondary = document.getElementById('btnModalCloseSecondary');
     const btnModalDirectDownload = document.getElementById('btnModalDirectDownload');
 
-    // Estado de la Aplicación (Valores Por Defecto: Mr. George)
+    // Estado de la Aplicación (Valores Por Defecto: Mr. George + Frase Centrada)
     let canvasWidth = 1080;
     let canvasHeight = 1350;
     let currentRatioName = '4:5';
@@ -462,7 +462,7 @@
 
     let titleAlign = 'left';    // 'left' | 'center' | 'right'
     let textAlign = 'left';     // 'left' | 'center'
-    let textVPos = 'center';       // 'top' | 'center' | 'bottom'
+    let textVPos = 'center';    // 'top' | 'center' | 'bottom' (Frase centrada verticalmente por defecto)
     let bottomAlign = 'right';  // 'left' | 'center' | 'right'
 
     let uploadedLogoImage = null;
@@ -929,4 +929,5 @@
   </script>
 </body>
 </html>
+
 
