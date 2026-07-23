@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Memes de Texto</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col md:flex-row">
+
+  <!-- PANEL DE CONTROL / EDITOR -->
+  <div class="w-full md:w-1/2 lg:w-5/12 p-6 overflow-y-auto bg-slate-950/90 border-r border-slate-800 flex flex-col gap-5">
+    
+    <!-- ENCABEZADO -->
+    <div class="flex items-center gap-3">
+      <div class="p-2.5 bg-yellow-400/10 rounded-xl text-yellow-400 border border-yellow-400/20">
+        <i data-lucide="sparkles" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h1 class="text-xl font-bold text-white">Generador de Memes</h1>
+        <p class="text-xs text-slate-400">Edición rápida y formato anti-recorte</p>
+      </div>
+    </div>
+
+    <!-- FORMULARIO PRINCIPAL -->
+    <div class="space-y-4">
+
+      <!-- SELECTOR DE FORMATO -->
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Formato / Red Social</label>
+        <div class="grid grid-cols-2 gap-2" id="aspectRatioGroup">
+          <button type="button" data-ratio="4:5" data-w="1080" data-h="1350"
+            class="ratio-btn flex items-center gap-2 p-2 rounded-lg border border-yellow-400 bg-yellow-400/10 text-yellow-400 text-xs font-bold transition">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            <div class="text-left">
+              <div class="leading-tight">4:5 Portrait</div>
+              <div class="text-[10px] text-slate-400 font-normal">Instagram Feed</div>
+            </div>
+          </button>
+
+          <button type="button" data-ratio="9:16" data-w="1080" data-h="1920"
+            class="ratio-btn flex items-center gap-2 p-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-300 hover:border-slate-700 text-xs font-bold transition">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <div class="text-left">
+              <div class="leading-tight">9:16 Vertical</div>
+              <div class="text-[10px] text-slate-400 font-normal">Stories / TikTok</div>
+            </div>
+          </button>
+
+          <button type="button" data-ratio="1:1" data-w="1080" data-h="1080"
+            class="ratio-btn flex items-center gap-2 p-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-300 hover:border-slate-700 text-xs font-bold transition">
+            <i data-lucide="square" class="w-4 h-4"></i>
+            <div class="text-left">
+              <div class="leading-tight">1:1 Cuadrado</div>
+              <div class="text-[10px] text-slate-400 font-normal">Post Cuadrado</div>
+            </div>
+          </button>
+
+          <button type="button" data-ratio="16:9" data-w="1920" data-h="1080"
+            class="ratio-btn flex items-center gap-2 p-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-300 hover:border-slate-700 text-xs font-bold transition">
+            <i data-lucide="monitor" class="w-4 h-4"></i>
+            <div class="text-left">
+              <div class="leading-tight">16:9 Horizontal</div>
+              <div class="text-[10px] text-slate-400 font-normal">Twitter / Web</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- TÍTULO SUPERIOR Y ATAJOS DE UN CLIC -->
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Encabezado / Marca</label>
+        
+        <div>
+          <span class="text-xs text-slate-400 mb-1.5 block">Atajos rápidos (Clic para aplicar):</span>
+          <div class="flex gap-1.5 flex-wrap mb-2">
+            <button class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Labioso">
+              Labioso
+            </button>
+            <button class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Mi Interior">
+              Mi Interior
+            </button>
+            <button class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Mr. Gourmet">
+              Mr. Gourmet
+            </button>
+            <button class="title-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="Pensamientos">
+              Pensamientos
+            </button>
+          </div>
+          
+          <input type="text" id="inputTitle" value="Labioso" 
+            class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm"
+            placeholder="Escribe un título personalizado..." />
+        </div>
+
+        <div>
+          <label class="text-xs text-slate-400 mb-1 block">Subir Icono/Logo opcional (transparente)</label>
+          <input type="file" id="inputLogo" accept="image/*" 
+            class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-800 file:text-yellow-400 hover:file:bg-slate-700 cursor-pointer" />
+        </div>
+      </div>
+
+      <!-- MENSAJE PRINCIPAL -->
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Texto del Meme / Mensaje</label>
+        
+        <textarea id="inputText" rows="4" 
+          class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm leading-relaxed"
+          placeholder="Escribe el texto aquí...">No me coqueteen mientras tomo, porque Dios perdona, yo no.</textarea>
+
+        <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+          <span>Formato libre de frase</span>
+          <button id="btnCapitalize" class="hover:text-yellow-400 text-xs font-medium underline">Primera Mayúscula</button>
+        </div>
+      </div>
+
+      <!-- ETIQUETA / ANTI-RECORTE -->
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+        <div class="flex items-center justify-between">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Etiqueta de Redes Sociales</label>
+          <span class="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20 font-semibold">
+            Protección Anti-Recorte Activa
+          </span>
+        </div>
+
+        <div class="flex gap-1.5 flex-wrap mb-1">
+          <button class="tag-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="@maslabiaqpinta">
+            @maslabiaqpinta
+          </button>
+          <button class="tag-quick-btn px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-yellow-400 rounded-md border border-slate-700 font-semibold transition" data-value="@mi_interior">
+            @mi_interior
+          </button>
+        </div>
+
+        <input type="text" id="inputTag" value="@maslabiaqpinta" 
+          class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 text-sm"
+          placeholder="Ej: @tu_usuario" />
+
+        <div class="flex items-center gap-2 pt-1">
+          <input type="checkbox" id="chkWatermarkCenter" checked class="w-4 h-4 accent-yellow-400 rounded cursor-pointer" />
+          <label for="chkWatermarkCenter" class="text-xs text-slate-300 cursor-pointer">
+            Añadir también marca de agua semitransparente en el centro
+          </label>
+        </div>
+      </div>
+
+      <!-- OPCIONES DE COLOR -->
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Color del Texto</label>
+        
+        <div class="flex items-center gap-3 flex-wrap">
+          <!-- Color del Logo Mr. -->
+          <button class="color-preset w-9 h-9 rounded-full border-2 border-white/80 transition hover:scale-110 flex items-center justify-center shadow-lg"
+            data-color="#FFCA00" style="background-color: #FFCA00;" title="Amarillo Mr. (Sugerido)">
+            <i data-lucide="check" class="w-4 h-4 text-slate-900 check-icon"></i>
+          </button>
+
+          <!-- Azul Original -->
+          <button class="color-preset w-9 h-9 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center"
+            data-color="#0E3BC8" style="background-color: #0E3BC8;" title="Azul Clásico">
+            <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
+          </button>
+
+          <!-- Negro -->
+          <button class="color-preset w-9 h-9 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center"
+            data-color="#111827" style="background-color: #111827;" title="Negro Elegante">
+            <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
+          </button>
+
+          <!-- Rojo -->
+          <button class="color-preset w-9 h-9 rounded-full border-2 border-transparent transition hover:scale-110 flex items-center justify-center"
+            data-color="#DC2626" style="background-color: #DC2626;" title="Rojo Intenso">
+            <i data-lucide="check" class="w-4 h-4 text-white check-icon hidden"></i>
+          </button>
+
+          <!-- Custom Color -->
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="text-xs text-slate-400">Personalizado:</span>
+            <input type="color" id="customColorPicker" value="#FFCA00" 
+              class="w-9 h-9 rounded-lg bg-transparent border-0 cursor-pointer" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTÓN DESCARGA -->
+    <div class="mt-auto pt-2 flex gap-3">
+      <button id="btnDownload" class="flex-1 py-3.5 px-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-yellow-400/10 transition hover:scale-[1.01] active:scale-[0.99]">
+        <i data-lucide="download" class="w-5 h-5"></i>
+        <span>Descargar Meme PNG</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- VISTA PREVIA DEL MEME / CANVAS -->
+  <div class="flex-1 bg-slate-900/50 p-6 flex flex-col items-center justify-center min-h-[500px]">
+    <div class="text-center mb-4">
+      <span id="formatBadge" class="text-xs uppercase tracking-widest text-yellow-400 font-bold bg-yellow-400/10 px-3 py-1 rounded-full border border-yellow-400/20">
+        Formato: 4:5 (1080x1350px)
+      </span>
+    </div>
+
+    <!-- RECEPTÁCULO DEL CANVAS CON SOMBRA -->
+    <div id="canvasContainer" class="relative max-w-full max-h-[75vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50 flex items-center justify-center bg-slate-800 transition-all duration-300">
+      <canvas id="memeCanvas" class="w-full h-full object-contain cursor-default"></canvas>
+    </div>
+    
+    <p class="text-xs text-slate-500 mt-4 text-center">
+      🛡️ La etiqueta está pegada al texto principal para evitar que la recorten.
+    </p>
+  </div>
+
+  <script>
+    // Inicializar Iconos
+    lucide.createIcons();
+
+    // Elementos DOM
+    const canvas = document.getElementById('memeCanvas');
+    const ctx = canvas.getContext('2d');
+    const canvasContainer = document.getElementById('canvasContainer');
+    const formatBadge = document.getElementById('formatBadge');
+
+    const inputTitle = document.getElementById('inputTitle');
+    const inputText = document.getElementById('inputText');
+    const inputTag = document.getElementById('inputTag');
+    const inputLogo = document.getElementById('inputLogo');
+    const customColorPicker = document.getElementById('customColorPicker');
+    const chkWatermarkCenter = document.getElementById('chkWatermarkCenter');
+    const btnDownload = document.getElementById('btnDownload');
+    const btnCapitalize = document.getElementById('btnCapitalize');
+
+    // Dimensiones por defecto
+    let canvasWidth = 1080;
+    let canvasHeight = 1350;
+    let currentRatioName = '4:5';
+
+    // Configuración activa
+    let currentColor = '#FFCA00';
+    let uploadedLogoImage = null;
+    let paperTextureCanvas = null;
+
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    // BOTONES DE ATAJO RÁPIDO (TÍTULO Y ETIQUETA)
+    document.querySelectorAll('.title-quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        inputTitle.value = btn.dataset.value;
+        renderMeme();
+      });
+    });
+
+    document.querySelectorAll('.tag-quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        inputTag.value = btn.dataset.value;
+        renderMeme();
+      });
+    });
+
+    // CAMBIO DE FORMATO
+    const ratioButtons = document.querySelectorAll('.ratio-btn');
+    ratioButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        ratioButtons.forEach(b => {
+          b.classList.remove('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
+          b.classList.add('border-slate-800', 'bg-slate-800/50', 'text-slate-300');
+        });
+        btn.classList.remove('border-slate-800', 'bg-slate-800/50', 'text-slate-300');
+        btn.classList.add('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
+
+        canvasWidth = parseInt(btn.dataset.w);
+        canvasHeight = parseInt(btn.dataset.h);
+        currentRatioName = btn.dataset.ratio;
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        canvasContainer.style.aspectRatio = `${canvasWidth} / ${canvasHeight}`;
+        formatBadge.textContent = `Formato: ${currentRatioName} (${canvasWidth}x${canvasHeight}px)`;
+
+        generatePaperTexture();
+      });
+    });
+
+    // GENERACIÓN DE TEXTURA DE PAPEL
+    function generatePaperTexture() {
+      const pCanvas = document.createElement('canvas');
+      pCanvas.width = canvasWidth;
+      pCanvas.height = canvasHeight;
+      const pCtx = pCanvas.getContext('2d');
+
+      pCtx.fillStyle = '#f2f2f4';
+      pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+      const imgData = pCtx.getImageData(0, 0, canvasWidth, canvasHeight);
+      const data = imgData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const noise = (Math.random() - 0.5) * 12;
+        data[i] = Math.min(255, Math.max(0, data[i] + noise));
+        data[i+1] = Math.min(255, Math.max(0, data[i+1] + noise));
+        data[i+2] = Math.min(255, Math.max(0, data[i+2] + noise));
+      }
+      pCtx.putImageData(imgData, 0, 0);
+
+      pCtx.strokeStyle = 'rgba(0, 0, 0, 0.03)';
+      pCtx.lineWidth = 1;
+      const totalFibers = Math.floor((canvasWidth * canvasHeight) / 3500);
+      for (let i = 0; i < totalFibers; i++) {
+        const x = Math.random() * canvasWidth;
+        const y = Math.random() * canvasHeight;
+        const len = 5 + Math.random() * 20;
+        const angle = Math.random() * Math.PI * 2;
+        pCtx.beginPath();
+        pCtx.moveTo(x, y);
+        pCtx.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+        pCtx.stroke();
+      }
+
+      const gradient = pCtx.createRadialGradient(
+        canvasWidth / 2, canvasHeight / 2, Math.min(canvasWidth, canvasHeight) * 0.3,
+        canvasWidth / 2, canvasHeight / 2, Math.max(canvasWidth, canvasHeight) * 0.7
+      );
+      gradient.addColorStop(0, 'rgba(0,0,0,0)');
+      gradient.addColorStop(1, 'rgba(0,0,0,0.06)');
+      pCtx.fillStyle = gradient;
+      pCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+      paperTextureCanvas = pCanvas;
+      renderMeme();
+    }
+
+    // DIBUJAR MEME EN EL CANVAS
+    function renderMeme() {
+      if (!paperTextureCanvas) return;
+
+      ctx.drawImage(paperTextureCanvas, 0, 0);
+
+      const scaleFactor = canvasWidth / 1080;
+      const paddingLeft = 140 * scaleFactor;
+      const paddingTop = (currentRatioName === '9:16' ? 240 : 120) * scaleFactor;
+      const contentWidth = canvasWidth - (paddingLeft * 2);
+
+      // 1. ENCABEZADO / TÍTULO
+      let titleY = paddingTop;
+      ctx.fillStyle = currentColor;
+
+      if (uploadedLogoImage) {
+        const logoSize = 64 * scaleFactor;
+        ctx.drawImage(uploadedLogoImage, paddingLeft, titleY - (10 * scaleFactor), logoSize, logoSize);
+        ctx.font = `900 ${Math.round(52 * scaleFactor)}px "Plus Jakarta Sans", sans-serif`;
+        ctx.textAlign = 'left';
+        ctx.fillText(inputTitle.value, paddingLeft + logoSize + (20 * scaleFactor), titleY + (40 * scaleFactor));
+      } else {
+        ctx.font = `900 ${Math.round(56 * scaleFactor)}px "Plus Jakarta Sans", sans-serif`;
+        ctx.textAlign = 'left';
+        ctx.fillText(inputTitle.value, paddingLeft, titleY + (40 * scaleFactor));
+      }
+
+      // 2. TEXTO O MENSAJE PRINCIPAL
+      const textYStart = titleY + ((currentRatioName === '9:16' ? 320 : 250) * scaleFactor);
+      const text = inputText.value || '';
+
+      let fontSize = 104 * scaleFactor;
+      if (currentRatioName === '16:9') fontSize = 84 * scaleFactor;
+
+      ctx.font = `900 ${Math.round(fontSize)}px "Plus Jakarta Sans", sans-serif`;
+      ctx.fillStyle = currentColor;
+      ctx.textAlign = 'left';
+
+      const words = text.split(' ');
+      let lines = [];
+      let currentLine = '';
+
+      words.forEach(word => {
+        const testLine = currentLine ? `${currentLine} ${word}` : word;
+        const metrics = ctx.measureText(testLine);
+        
+        if (metrics.width > contentWidth && currentLine !== '') {
+          lines.push(currentLine);
+          currentLine = word;
+        } else {
+          currentLine = testLine;
+        }
+      });
+      if (currentLine) lines.push(currentLine);
+
+      const lineHeight = fontSize * 1.05;
+      lines.forEach((line, index) => {
+        const y = textYStart + (index * lineHeight);
+        ctx.fillText(line, paddingLeft, y);
+      });
+
+      // ALTIMETRÍA FINAL DEL TEXTO PRINCIPAL
+      const lastTextY = textYStart + ((lines.length - 1) * lineHeight);
+
+      // 3. PROTECCIÓN ANTI-RECORTE: ETIQUETA PEGADA JUSTO DEBAJO DEL TEXTO
+      if (inputTag.value) {
+        const tagAttachedY = lastTextY + (lineHeight * 0.95);
+        ctx.font = `800 ${Math.round(48 * scaleFactor)}px "Plus Jakarta Sans", sans-serif`;
+        ctx.fillStyle = currentColor;
+        ctx.textAlign = 'left';
+        ctx.fillText(inputTag.value, paddingLeft, tagAttachedY);
+      }
+
+      // 4. MARCA DE AGUA SEMITRANSPARENTE EN EL CENTRO
+      if (inputTag.value && chkWatermarkCenter.checked) {
+        const watermarkY = textYStart + ((lines.length * lineHeight) / 2);
+        ctx.font = `900 ${Math.round(58 * scaleFactor)}px "Plus Jakarta Sans", sans-serif`;
+        ctx.fillStyle = currentColor + '22'; // Transparencia suave
+        ctx.textAlign = 'center';
+        ctx.fillText(inputTag.value, canvasWidth / 2, watermarkY);
+      }
+    }
+
+    // LOGO SUBIDO
+    inputLogo.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.onload = () => {
+            uploadedLogoImage = img;
+            renderMeme();
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        uploadedLogoImage = null;
+        renderMeme();
+      }
+    });
+
+    // EVENTOS INPUT
+    [inputTitle, inputText, inputTag, chkWatermarkCenter].forEach(el => {
+      el.addEventListener('input', renderMeme);
+    });
+
+    // COLORES
+    const colorPresets = document.querySelectorAll('.color-preset');
+    colorPresets.forEach(btn => {
+      btn.addEventListener('click', () => {
+        colorPresets.forEach(b => {
+          b.classList.remove('border-white/80');
+          b.classList.add('border-transparent');
+          b.querySelector('.check-icon').classList.add('hidden');
+        });
+        btn.classList.remove('border-transparent');
+        btn.classList.add('border-white/80');
+        btn.querySelector('.check-icon').classList.remove('hidden');
+
+        currentColor = btn.dataset.color;
+        customColorPicker.value = currentColor;
+        renderMeme();
+      });
+    });
+
+    customColorPicker.addEventListener('input', (e) => {
+      currentColor = e.target.value;
+      colorPresets.forEach(b => {
+        b.classList.remove('border-white/80');
+        b.classList.add('border-transparent');
+        b.querySelector('.check-icon').classList.add('hidden');
+      });
+      renderMeme();
+    });
+
+    // BOTÓN MAYÚSCULA
+    btnCapitalize.addEventListener('click', () => {
+      if (inputText.value) {
+        let val = inputText.value.toLowerCase();
+        inputText.value = val.charAt(0).toUpperCase() + val.slice(1);
+        renderMeme();
+      }
+    });
+
+    // DESCARGAR
+    btnDownload.addEventListener('click', () => {
+      const link = document.createElement('a');
+      const ratioClean = currentRatioName.replace(':', '-');
+      const filename = `${(inputTitle.value || 'meme').toLowerCase().replace(/\s+/g, '-')}-${ratioClean}.png`;
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    });
+
+    // INICIO
+    window.onload = () => {
+      canvasContainer.style.aspectRatio = `${canvasWidth} / ${canvasHeight}`;
+      generatePaperTexture();
+    };
+  </script>
+</body>
+</html>
+
